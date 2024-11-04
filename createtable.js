@@ -6,14 +6,16 @@ var con = mysql.createConnection({
   user: "root",
   password: "31102003",
   database: "mydb"
+
 });
 
 
 con.connect(function(err) {
     if (err) throw err;
-    var sql = "INSERT INTO customers (name, address) VALUES ('Michelle', 'Blue Village 1')";
+    console.log("Connected!");
+    var sql = "CREATE TABLE employee (EmployeeId VARCHAR(255), FirstName VARCHAR(255), LastName VARCHAR(255),DepartmentName VARCHAR(255))";
     con.query(sql, function (err, result) {
       if (err) throw err;
-      console.log("1 record inserted, ID: " + result.insertId);
+      console.log("Table created");
     });
   });
